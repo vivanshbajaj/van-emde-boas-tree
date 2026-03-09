@@ -20,16 +20,16 @@ The implementation supports **Insert, Delete, Member, Successor, Predecessor, Mi
 
 ## Key Optimizations Explained
 
-### 1️. Small Mode (`U ≤ 64`)
+### 1. Small Mode (`U ≤ 64`)
 - Uses a **64-bit bitmask**
 - All operations use bit tricks (`__builtin_ctzll`, `__builtin_clzll`)
 - Extremely fast and memory-efficient
 
-### 2️. Medium Mode (`64 < U ≤ 256`)
+### 2. Medium Mode (`64 < U ≤ 256`)
 - Uses a **byte array**
 - Simple linear scans for min/max/successor/predecessor
 
-### 3️. Large Universe (Sparse vEB)
+### 3. Large Universe (Sparse vEB)
 - Clusters are stored **only when needed**
 - Uses a **custom hash map** to reduce memory usage
 - Summary tree tracks non-empty clusters
